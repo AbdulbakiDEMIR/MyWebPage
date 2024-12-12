@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Statik dosyalar için doğrudan erişim sağla (css, js, img, ico, vs.)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ - [L]
+
+# Diğer tüm istekleri index.html'e yönlendir
+RewriteRule ^(.*)$ index.html [QSA,L]
