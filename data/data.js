@@ -86,6 +86,12 @@ export const data = {
             "icon": "fa-solid fa-briefcase",
             "contents":[
                 {
+                    "date":"2024.09 - 2025.01",
+                    "company": "Priva Security",
+                    "mission": "Frontend Geliştirici (Uzun Dönem Stajyer)",
+                    "explanation": " Lorem açkılmama işlem. hesap olacak bir şey ama yinede düzelir belki ama olmasa da olur. Çabuk ol sorun olmadan kaç geriye."
+                },
+                {
                     "date":"2024.07 - 2024.08",
                     "company": "Priva Security",
                     "mission": "Frontend Geliştirici (Stajyer)",
@@ -116,7 +122,16 @@ export const data = {
     ],
     "projects":[
         {
-            "img": "snake-game.png",
+            "img": "/img/snake-game.png",
+            "header": "Yılan Oyunu",
+            "date": "2022",
+            "explanation": "Bu proje, klasik 'Snake' (Yılan) oyununu terminal/komut satırı ortamında oynatmak üzere yazılmış bir C dilinde uygulamadır. Oyun, bir yılanın ekranda hareket edip yemleri topladığı ve kuyruk uzunluğunu artırdığı temel mekaniğe dayanır. Oyun kolay ve zor olmak üzere iki farklı modda oynanabilir.",
+            "link": "https://github.com/AbdulbakiDEMIR/Snake-C"
+        }
+    ],
+    "blogs":[
+        {
+            "img": "/img/snake-game.png",
             "header": "Yılan Oyunu",
             "date": "2022",
             "explanation": "Bu proje, klasik 'Snake' (Yılan) oyununu terminal/komut satırı ortamında oynatmak üzere yazılmış bir C dilinde uygulamadır. Oyun, bir yılanın ekranda hareket edip yemleri topladığı ve kuyruk uzunluğunu artırdığı temel mekaniğe dayanır. Oyun kolay ve zor olmak üzere iki farklı modda oynanabilir.",

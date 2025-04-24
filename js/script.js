@@ -148,13 +148,8 @@ document.addEventListener("DOMContentLoaded",function(){
     targetElements.forEach(target => observer.observe(target));
 
 
-
-
-
-
-
-
-
+    
+    
 })
 
 
@@ -193,6 +188,46 @@ function scrollToSection(event) {
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: "smooth" });
+    }
+}
+
+
+function changeUrl(url){
+    window.location.pathname = url;
+}
+
+function getParams(paramsName){
+    const search = window.location.search; // "?id=12"
+
+    const params = new URLSearchParams(search);
+    const params_value = params.get(paramsName);
+
+    return params_value;
+}
+
+
+function inputPasswordIcon(id){
+    icon=document.getElementById("icon"+id);
+    input=document.getElementById(id);
+    if(input.type == "text"){
+        input.type="password"
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    }else{
+        input.type="text"
+        icon.classList.add("fa-eye");
+        icon.classList.remove("fa-eye-slash");
+    }
+}
+
+function previewImage(event,id) {
+    const file = event.target.files[0]; // Seçilen ilk dosya
+    id= id.id;
+    console.log(file,id)
+    if (file) {
+        const previewContainer = document.querySelector('#'+id+'PreviewContainer img');
+        previewContainer.src = URL.createObjectURL(file); // Dosyanın geçici URL'sini al
+
     }
 }
 

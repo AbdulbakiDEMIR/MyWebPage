@@ -1,4 +1,3 @@
-
 export function HomeSection() {
     return `
         <section id="home">
@@ -15,7 +14,7 @@ export function HomeSection() {
                     </p>
                 </div>
                 <div class="col-11 col-md-5 ratio1-1 mask-img animate-bottom">
-                    <img class="animate-left4" src="./../img/baki-removebg.png" alt="">
+                    <img class="animate-left4" src="/img/baki-removebg.png" alt="">
                 </div>
             </div>
         </section>`;

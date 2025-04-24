@@ -1,19 +1,19 @@
-export function Projects(projects){
-    var projectsContent = ""
+export function Blogs(blogs){
+    var blogsContent = ""
     
-    projectsContent = projects.map(data => `
+    blogsContent = blogs.map(data => `
         ${MainContent(data)}
     `).join('');
 
 
     return `
-        <section id="projects">
+        <section id="blogs">
             <div class="container-xxl">
                 <div class="row">
                     <div class="col-12 col-lg-8 mx-auto">
-                        <h2 class="animate-top2">Projeler</h2>
+                        <h2 class="animate-top2">Bloglar</h2>
                         <div class="row row-cols-md-3 row-cols-2">
-                            ${projectsContent}
+                            ${blogsContent}
                         </div>
                     </div>
                 </div>
@@ -42,10 +42,6 @@ function MainContent(data) {
                         <i class="fa-regular fa-calendar me-1"></i>
                         ${data.date}
                     </span>
-                    <a onclick="changeUrl('/project_detail')" class="rounded-pill ms-auto me-2">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        Detay
-                    </a>
                     <a href="${data.link}" target="_blank" class="rounded-pill">
                         <i class="fa-brands fa-github me-1"></i>
                         İncele

@@ -1,4 +1,14 @@
+import { data } from "/data/nav_data.js";
+
 export function Navbar() {
+    const navItems = data.map(nav => `
+        <li class="${nav.animate}">
+            <a href="${nav.href}" onclick="scrollToSection(event)">${nav.header}</a>
+        </li>
+
+    `).join('');
+
+
     return `
         <div id="burger-button" onclick="burgerButtonActive()">
             <div id="burger-button-line1"></div>
@@ -8,9 +18,7 @@ export function Navbar() {
         <nav>
             <div class="container-xxl">
                 <ul class="nav-list">
-                    <li class="animate-top1"><a href="#home" onclick="scrollToSection(event)">Ana Sayfa</a></li>
-                    <li class="animate-top2"><a href="#aboutMe" onclick="scrollToSection(event)">Hakkımda</a></li>
-                    <li class="animate-top3"><a href="#projects" onclick="scrollToSection(event)">Projeler</a></li>
+                    ${navItems}
                 </ul>
             </div>
         </nav>`;

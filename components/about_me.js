@@ -1,5 +1,5 @@
-import { DateContent } from "./dateContent.js";
-import { Resume } from "./resume.js"; 
+import { DateContent } from "/components/date_content.js";
+import { Resume } from "/components/resume.js"; 
 
 export function AboutMe(tech, experience){
     var dateContentItems = ""

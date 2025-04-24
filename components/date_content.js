@@ -34,7 +34,7 @@ function DateContentBoxWork(index, data){
         </div>
         <hr class="mb-0"/>   
         <ul class="p-0">
-            <li>Görev: ${data.mission}</li>
+            <li class="mb-3">Görev: ${data.mission}</li>
             <li>Açıklama:
                 ${data.explanation}
             </li>
