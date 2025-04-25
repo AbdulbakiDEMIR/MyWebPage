@@ -146,9 +146,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
     // Her bir target etiketi gözlemlemeye başla
     targetElements.forEach(target => observer.observe(target));
-
-
     
+
     
 })
 
@@ -250,6 +249,82 @@ function image_adapter_submit(event){
     .catch(error => {
         console.error("Yükleme sırasında hata oluştu:", error);
     });
+}
+
+
+function personal_data_submit(event){
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const admin_hi = formData.get("admin_hi");
+    const admin_name = formData.get("admin_name");
+    const admin_description = formData.get("admin_description");
+    const admin_image = formData.get("image_adapter_input");
+
+    console.log(admin_image)
+    fetch("/php/upload_personal_info.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
+}
+
+
+function image_adapter_value(target,value){
+    var image_input = document.getElementById(target);
+    image_input.value = value;
+    var admin_personal_image = document.getElementById("admin_personal_image");
+    admin_personal_image.src=value;   
+}
+
+async function loadPersonalAdminInfo() {
+    try {
+        const response = await fetch('/php/get_personal_info.php');
+        const data = await response.json();
+
+        if (data.error) {
+            console.error("Hata:", data.error);
+        } else {
+            document.querySelector("#admin_hi").value = data.header;
+            document.querySelector("#admin_name").value = data.name;
+            document.querySelector("#admin_description").value = data.description;
+            document.querySelector("#image_adapter_input").value = data.img_path;
+            document.querySelector("#admin_personal_image").src = data.img_path;
+        }
+    } catch (error) {
+        console.error("Veri çekilirken hata oluştu:", error);
+    }
+}
+
+if(window.location.pathname === "/admin"){
+    document.addEventListener('DOMContentLoaded', loadPersonalAdminInfo);
+}
+
+async function loadPersonalInfo() {
+    try {
+        const response = await fetch('/php/get_personal_info.php');
+        const data = await response.json();
+
+        if (data.error) {
+            console.error("Hata:", data.error);
+        } else {
+            document.querySelector("#hi").innerHTML = data.header;
+            document.querySelector("#name").innerHTML = data.name;
+            document.querySelector("#description").innerHTML = data.description;
+            document.querySelector("#personal_image").src = data.img_path;
+        }
+    } catch (error) {
+        console.error("Veri çekilirken hata oluştu:", error);
+    }
+}
+
+if(window.location.pathname === "/"){
+    document.addEventListener('DOMContentLoaded', loadPersonalInfo);
 }
 
 // function changeUrl(event) {

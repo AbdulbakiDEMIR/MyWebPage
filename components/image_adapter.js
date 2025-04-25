@@ -1,16 +1,16 @@
 import { FastPage, FastPageLabel } from "/components/fast_page.js";
 import { TextInput } from "/components/input/input.js"
 import {imagesData} from "/img/images.js"
+
 export function ImageAdapter(name) { 
 
     const create_image = FastPage(`
         <form 
             id="${name}_form" 
             class="d-flex justify-content-center align-items-center flex-column"
-             onsubmit="image_adapter_submit(event)" onchange="image_adapter_change(event)"
+             onsubmit="image_adapter_submit(event)"
         >
             ${TextInput("text","image_create_name_input", "mb-2","Resim Adı")}
-            
             ${TextInput("file","image_create_input", "mb-2 mx-auto w-50","")}
             <div class="w-100 d-flex mx-auto">
                 <button class="w-50 mx-auto btn btn-dark">Resim Ekle</button>
@@ -31,7 +31,7 @@ export function ImageAdapter(name) {
     `)
     function images(path,name) {
         return `
-        <div class="col cursor-pointer">
+        <div class="col cursor-pointer" onclick="image_adapter_value('image_adapter_input','${path}')">
             <div class="ratio ratio-1x1 bg-white">
                 <img src="${path}" class="w-100 h-100" style="object-fit:cover;">
             </div>
@@ -51,7 +51,7 @@ export function ImageAdapter(name) {
     }
     
     const FastPage1 = FastPage(`
-        <div class="row row-cols-6">
+        <div  class="row row-cols-6">
             ${create_image_label}
             ${show_images()}
             ${create_image}

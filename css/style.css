@@ -1248,3 +1248,129 @@ nav .have-child > a::after{
 
 
 
+/***********ADMIN***************/
+/***********ADMIN***************/
+/***********ADMIN***************/
+/***********ADMIN***************/
+/***********ADMIN***************/
+/***********ADMIN***************/
+
+
+
+/************************************/
+/**************HOME SECTİON**********/
+/************************************/
+
+#home{
+    background-color: var(--color11) !important;
+    color: var(--text-color2) !important;
+    position: relative;
+    overflow: hidden;
+    height: calc(100vh - 3.9rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+#home > div{
+    margin: 3rem auto;
+    position: fixed;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#home .mask-img{
+    filter: drop-shadow(0px 0px 13px var(--color-primary));
+    /* box-shadow: var(--shadow-1); */
+    overflow: hidden;
+    width: 35vw;
+    max-width: 600px;
+    border-radius: 50% 1% 50% 50%;
+    background-color: var(--color16);
+    /* background-color: transparent; */
+    z-index: 1;
+}
+#home .mask-img img{
+    filter: saturate(0.0) brightness(0.8) contrast(1.3);
+    /* clip-path: polygon(0% 0%, 100.1% 0%, 100.1% 90%, 0% 100%); */
+}
+#home .home-desc{
+    padding: 2rem 3rem;
+    /* margin: 0 3rem 0 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+    z-index: 2;
+    color: var(--color-tertiary);
+    /* box-shadow: var(--shadow-1); */
+    background-color: transparent;
+}
+#home .home-desc input[name="admin_hi"]{
+    background-color: transparent;
+    font-family: 'Open Sans', sans-serif;
+    /* color: var(--color-primary); */
+    font-size: 4rem;
+    font-weight: 900;
+}
+#home .home-desc input[name="admin_name"]{
+    background-color: transparent;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--color-primary);
+    font-size: 2rem;
+    font-weight: 900;
+}
+/* #home .home-desc h1::before{
+    content: "\2013";
+    font-weight: 900;
+    font-size: 4rem;
+} */
+#home .home-desc textarea[name="admin_description"]{
+    width: 100%;
+    height: 12rem;
+    background-color: transparent;
+    font-family: 'Poppins', sans-serif!important;
+    font-weight: 400;
+}
+/* #home .home-decoration{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: var(--color6);
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+#home .home-decoration:nth-child(2){
+    left: 0;
+    background-color: var(--color5);
+    clip-path: polygon(0% 0, 0% 100%, 100% 100%);
+} */
+@media (max-width: 767px) {
+    #home .home-desc{
+        margin: 0 0 0 0;
+        text-align: center;
+        /* background-color: var(--background-color-3); */
+        /* color: var(--color-lightn); */
+    }
+    #home > div{
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+    }
+    #home .mask-img{
+        /* display: none; */
+        width: 80vw;
+        max-width: none;
+        /* position: absolute; */
+    }
+    #home .align-box{
+        display: flex;
+        width: 50%;
+        padding-top: 80%;
+    }
+}
+@media (max-width: 570px) {
+#home {
+    height: 100vh;
+}
+}

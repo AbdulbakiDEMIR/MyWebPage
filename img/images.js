@@ -38,5 +38,10 @@ export const imagesData = [
         "id": "1c8d310c038e41d3bb4a115de550a2bd",
         "name": "dsas",
         "path": "/img/1c8d310c038e41d3bb4a115de550a2bd.png"
+    },
+    {
+        "id": "787c70a04661f168ff1351277677efef",
+        "name": "yeni",
+        "path": "/img/787c70a04661f168ff1351277677efef.jpg"
     }
 ];
