@@ -231,6 +231,26 @@ function previewImage(event,id) {
     }
 }
 
+function image_adapter_submit(event){
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const image_name = formData.get("image_create_name_input");
+    const image_file = formData.get("image_create_input");
+
+    console.log(image_name, image_file)
+
+    fetch("/php/upload_image.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
+}
 
 // function changeUrl(event) {
 //     // Varsayılan link davranışını engelle
