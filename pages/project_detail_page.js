@@ -1,5 +1,4 @@
 export function ProjectDetailPage() {
-    alert(getParams("id"));
     document.getElementById('app').innerHTML = `
         <section id="" class="m-5">
             <div class=" container-lg mx-auto">
@@ -36,6 +35,7 @@ export function ProjectDetailPage() {
                     </div>
                 </div>
             </div>
+            <button class="btn btn-dark" onclick="changeUrl('/admin')">Bas</button>
         </section>
     `;
 

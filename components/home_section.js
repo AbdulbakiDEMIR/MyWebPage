@@ -11,5 +11,9 @@ export function HomeSection() {
                     <img id="personal_image" class="animate-left4" alt="">
                 </div>
             </div>
-        </section>`;
+        </section>
+        <div class="d-none">
+            ${loadPersonalInfo()}
+        </div>        
+        `;
 }

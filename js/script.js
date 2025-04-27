@@ -52,6 +52,7 @@
 // });
 
 document.addEventListener("DOMContentLoaded",function(){
+
     // ScrollReveal.debug = true;
     ScrollReveal({ reset: false });
     ScrollReveal().reveal('.animate-top1', { 
@@ -148,7 +149,6 @@ document.addEventListener("DOMContentLoaded",function(){
     targetElements.forEach(target => observer.observe(target));
     
 
-    
 })
 
 
@@ -252,15 +252,20 @@ function image_adapter_submit(event){
 }
 
 
+
+
+
+function image_adapter_value(target,value){
+    var image_input = document.getElementById(target);
+    image_input.value = value;
+    var admin_personal_image = document.getElementById("admin_personal_image");
+    admin_personal_image.src=value;   
+}
+
+
 function personal_data_submit(event){
     event.preventDefault();
     const formData = new FormData(event.target);
-    const admin_hi = formData.get("admin_hi");
-    const admin_name = formData.get("admin_name");
-    const admin_description = formData.get("admin_description");
-    const admin_image = formData.get("image_adapter_input");
-
-    console.log(admin_image)
     fetch("/php/upload_personal_info.php", {
         method: "POST",
         body: formData
@@ -272,14 +277,6 @@ function personal_data_submit(event){
     .catch(error => {
         console.error("Yükleme sırasında hata oluştu:", error);
     });
-}
-
-
-function image_adapter_value(target,value){
-    var image_input = document.getElementById(target);
-    image_input.value = value;
-    var admin_personal_image = document.getElementById("admin_personal_image");
-    admin_personal_image.src=value;   
 }
 
 async function loadPersonalAdminInfo() {
@@ -301,10 +298,6 @@ async function loadPersonalAdminInfo() {
     }
 }
 
-if(window.location.pathname === "/admin"){
-    document.addEventListener('DOMContentLoaded', loadPersonalAdminInfo);
-}
-
 async function loadPersonalInfo() {
     try {
         const response = await fetch('/php/get_personal_info.php');
@@ -322,50 +315,3 @@ async function loadPersonalInfo() {
         console.error("Veri çekilirken hata oluştu:", error);
     }
 }
-
-if(window.location.pathname === "/"){
-    document.addEventListener('DOMContentLoaded', loadPersonalInfo);
-}
-
-// function changeUrl(event) {
-//     // Varsayılan link davranışını engelle
-//     event.preventDefault();
-    
-//     const href = event.target.getAttribute("href");
-//     // URL'yi değiştirme (pushState ile yönlendirme yapmadan)
-//     history.pushState(null, "", href);
-
-// }
-
-
-// document.addEventListener("DOMContentLoaded",function(){
-//     let haveChild =  document.querySelectorAll(".have-child");
-//     for(let i = 0; i< haveChild.length; i++){
-//         haveChild[i].addEventListener("click", function (event) {
-//             var clickedElement = event.target;
-//             console.log(clickedElement,event.target.tagName);
-//             // have-child elementinin a etiketine tıklandığında 
-//             // başka sayfaya gitmemesi için
-//             if (event.target.tagName === "A") {
-//                 var href = event.target.getAttribute("href");
-//                 if (href === "#") {
-//                     event.preventDefault();
-//                 }
-//             }
-//             if(!clickedElement.parentElement.classList.contains("drop-down") && !clickedElement.classList.contains("drop-down")){
-                
-//                 if(clickedElement.parentElement != haveChild[i]){
-//                     haveChild.classList.remove("active");
-//                 }
-//                 // Tıklanan öğenin bir "have-child" olup olmadığını kontrol et
-//                 if (clickedElement.parentElement.classList.contains("have-child")|| clickedElement.classList.contains("have-child")) {
-//                     // Tıklanan öğe "have-child" ise, "active" sınıfını ekleyin
-//                     clickedElement.parentElement.classList.toggle("active");
-//                 }
-//             }
-//         });
-        
-//     }
-// })
-
-

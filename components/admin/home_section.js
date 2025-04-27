@@ -30,6 +30,8 @@ export function HomeSection() {
                 </div>
             </form>
         </section>
-        
+        <div class="d-none">
+            ${loadPersonalAdminInfo()}
+        </div>    
         `;
 }
