@@ -1,5 +1,8 @@
-import { DateContent } from "/components/date_content.js";
-import { Resume } from "/components/resume.js"; 
+import { DateContent } from "/components/admin/date_content.js";
+import { Resume } from "/components/admin/resume.js"; 
+import { FastPage } from "/components/fast_page.js";
+import { TextInput } from "/components/input/input.js"
+
 
 export function AboutMe(tech, experience){
     var dateContentItems = ""
@@ -16,6 +19,27 @@ export function AboutMe(tech, experience){
         <section id="aboutMe">
             <div class="container-xxl">
                 <div class="row">
+                    ${FastPage(`
+                        <form onsubmit="work_update(event)">
+                            <input type="hidden" id="work_update_id" name="id"/>   
+                            ${TextInput("text","work_company_name_update_input", "mb-2 mx-auto ","Company Name")}
+                            ${TextInput("text","work_company_date_update_input", "mb-2 mx-auto ","Company Date")}
+                            ${TextInput("text","work_company_mission_update_input", "mb-2 mx-auto ","Company Mission")}
+                            ${TextInput("textarea","work_company_explanation_update_input", "mb-2 mx-autd ","Company Description")}
+                            <button class="btn btn-dark">Güncelle</button>
+                        </form>
+                    `,"work_update","text-dark W-50","Work Update")}
+                    ${FastPage(`
+                        <form onsubmit="edu_update(event)">
+                            <input type="hidden" id="edu_update_id" name="id"/>   
+                            ${TextInput("text","edu_university_update_input", "mb-2 mx-auto ","Education Name")}
+                            ${TextInput("text","edu_date_update_input", "mb-2 mx-auto ","Education Date")}
+                            ${TextInput("text","edu_department_update_input", "mb-2 mx-auto ","Education Department")}
+                            ${TextInput("text","edu_class_name_update_input", "mb-2 mx-autd ","Education Class")}
+                            ${TextInput("text","edu_note_update_input", "mb-2 mx-autd ","Education Note")}
+                            <button class="btn btn-dark">Güncelle</button>
+                        </form>
+                    `,"edu_update","text-dark W-50","Edu Update")}
                     <div class="col-12 col-xl-8 mx-auto">
                         <h2 class="animate-top2">Hakkımda</h2>
                         <div class="row row-cols-1 row-cols-md-2">

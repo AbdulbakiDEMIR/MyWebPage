@@ -1,55 +1,3 @@
-// var portfolioOwl = $('.selectCarousel1');
-// portfolioOwl.owlCarousel({
-//     loop:false,
-//     autoplay: false,
-//     nav:true,
-//     dots: true,
-//     mouseDrag: true,
-//     responsive:{
-//         0:{
-//             items:1
-//         }
-//     }
-// });
-// var categoriesOwl = $('.categories-carousel');
-// categoriesOwl.owlCarousel({
-//     loop:true,
-//     autoplay: true,
-//     nav:true,
-//     margin:10,
-//     dots: true,
-//     mouseDrag: true,
-//     responsive:{
-//         0:{
-//             items:1
-//         },
-//         400:{
-//             items:2
-//         },
-//         800:{
-//             items:3
-//         },
-//         1000:{
-//             items:4
-//         },
-//         1400:{
-//             items:5
-//         },
-//         1800:{
-//             items:6
-//         }
-//     }
-// });
-
-// var owl_navIcons = document.querySelectorAll(".owl-nav");
-// owl_navIcons.forEach(function(owl_navIcon){
-//     var owl_button_left = owl_navIcon.querySelector(".owl-prev span");
-//     var owl_button_right = owl_navIcon.querySelector(".owl-next span");
-//     owl_button_left.classList.add("material-symbols-outlined");
-//     owl_button_left.innerHTML = "arrow_back_ios";
-//     owl_button_right.classList.add("material-symbols-outlined");
-//     owl_button_right.innerHTML = "arrow_forward_ios";
-// });
 
 document.addEventListener("DOMContentLoaded",function(){
 
@@ -279,39 +227,54 @@ function personal_data_submit(event){
     });
 }
 
-async function loadPersonalAdminInfo() {
-    try {
-        const response = await fetch('/php/get_personal_info.php');
-        const data = await response.json();
-
-        if (data.error) {
-            console.error("Hata:", data.error);
-        } else {
-            document.querySelector("#admin_hi").value = data.header;
-            document.querySelector("#admin_name").value = data.name;
-            document.querySelector("#admin_description").value = data.description;
-            document.querySelector("#image_adapter_input").value = data.img_path;
-            document.querySelector("#admin_personal_image").src = data.img_path;
-        }
-    } catch (error) {
-        console.error("Veri çekilirken hata oluştu:", error);
-    }
+function work_update(event){
+    event.preventDefault();
+    console.log(event.target)
+    const formData = new FormData(event.target);
+    fetch("/php/work_update.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        changeUrl( window.location.pathname)
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
 }
 
-async function loadPersonalInfo() {
-    try {
-        const response = await fetch('/php/get_personal_info.php');
-        const data = await response.json();
+function set_work_update_component(id,name,date,mission,explanation){
+    console.log(id,name,date,mission,explanation)
+    document.getElementById("work_update_id").value = id;
+    document.getElementById("work_company_name_update_input").value = name;
+    document.getElementById("work_company_date_update_input").value = date;
+    document.getElementById("work_company_mission_update_input").value = mission;
+    document.getElementById("work_company_explanation_update_input").value = explanation;
+}
 
-        if (data.error) {
-            console.error("Hata:", data.error);
-        } else {
-            document.querySelector("#hi").innerHTML = data.header;
-            document.querySelector("#name").innerHTML = data.name;
-            document.querySelector("#description").innerHTML = data.description;
-            document.querySelector("#personal_image").src = data.img_path;
-        }
-    } catch (error) {
-        console.error("Veri çekilirken hata oluştu:", error);
-    }
+function edu_update(event){
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch("/php/edu_update.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        changeUrl( window.location.pathname)
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
+}
+
+function set_edu_update_component(id,university,date,department,class_name,note){
+    console.log(id,university,date,department,class_name,note)
+    document.getElementById("edu_update_id").value = id;
+    document.getElementById("edu_university_update_input").value = university;
+    document.getElementById("edu_date_update_input").value = date;
+    document.getElementById("edu_department_update_input").value = department;
+    document.getElementById("edu_class_name_update_input").value = class_name;
+    document.getElementById("edu_note_update_input").value = note;
 }

@@ -13,6 +13,14 @@ export function TextInput(type="", id="",class_name="",label=""){
             </div>
         `
     }
+    if(type=="textarea"){
+        return`
+            ${text_label}
+            <div class="${class_name}">
+                <textarea id="${id}" name="${id}" class="form-control" type="${type}"></textarea>
+            </div>
+        `
+    }
     else if(type=="password"){
         return`
             ${text_label}

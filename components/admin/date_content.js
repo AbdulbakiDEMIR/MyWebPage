@@ -1,3 +1,5 @@
+import { FastPageLabel } from "/components/fast_page.js";
+
 export function DateContent(data){
     var experienceItems = ""
     if(data.type == 0){
@@ -30,7 +32,14 @@ function DateContentBoxWork(index, data){
         <div class="date-content-box" style="--value:${index}">
             <div class="date-content-box-header">
                 <h6 class="m-0">${data.company}</h6>    
-                <div class="date-content-box-date rounded-pill">${data.date}</div>
+                <div class="date-content-box-date rounded-pill text-center" style="min-width: 9rem;">${data.date}</div>
+                <div class="ms-auto d-flex gap-3">
+                    <i class="fa-solid fa-trash cursor-pointer"></i>
+                    ${FastPageLabel("work_update",`
+                        <i class="fa-solid fa-pen cursor-pointer" 
+                        onclick="set_work_update_component('${data.id}','${data.company}','${data.date}','${data.mission}','${data.explanation}')"></i>
+                    `)}
+                </div>     
             </div>
             <hr class="mb-0"/>   
             <ul class="p-0">
@@ -48,7 +57,14 @@ function DateContentBoxEducation(index, data){
     <div class="date-content-box" style="--value:${index}">
         <div class="date-content-box-header">
             <h6 class="m-0">${data.university}</h6>    
-            <div class="date-content-box-date rounded-pill">${data.date}</div>
+            <div class="date-content-box-date rounded-pill text-center" style="min-width: 9rem;">${data.date}</div>
+             <div class="ms-auto d-flex gap-3">
+                <i class="fa-solid fa-trash cursor-pointer"></i>
+                ${FastPageLabel("edu_update",`
+                    <i class="fa-solid fa-pen cursor-pointer" 
+                    onclick="set_edu_update_component('${data.id}','${data.university}','${data.date}','${data.department}','${data.class}',' ${data.note}')"></i>
+                `)}
+            </div>  
         </div>
         <hr class="mb-0"/>   
         <ul class="p-0">

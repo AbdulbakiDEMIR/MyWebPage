@@ -15,7 +15,7 @@ export async function HomePage() {
             console.error("Hata:", data.error);
         } else {
             document.getElementById('app').innerHTML = `
-                ${HomeSection()}
+                ${HomeSection(data["personal_info"])}
                 ${Navbar()}
                 ${AboutMe(data["tech"], data["experience"])}
                 ${HomeIcons()}

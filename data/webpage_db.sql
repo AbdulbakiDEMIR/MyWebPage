@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 Nis 2025, 14:23:30
+-- Üretim Zamanı: 27 Nis 2025, 19:37:35
 -- Sunucu sürümü: 10.4.32-MariaDB
 -- PHP Sürümü: 8.0.30
 
@@ -105,9 +105,9 @@ CREATE TABLE `job_experiences` (
 --
 
 INSERT INTO `job_experiences` (`id`, `header_id`, `date`, `company`, `mission`, `explanation`) VALUES
-(1, 1, '2024.09 - 2025.01', 'Priva Security', 'Frontend Geliştirici (Uzun Dönem Stajyer)', 'Lorem açıklama işlemi. Hesap olacak bir şey ama yine de düzelir belki ama olmasa da olur. Çabuk ol sorun olmadan kaç geriye.'),
+(1, 1, '2023.07 - 2023.08', 'ButikO', 'Frontend Geliştirici (Stajyer)', 'Lorem açıklama işlemi. Hesap olacak bir şey ama yine de düzelir belki ama olmasa da olur. Çabuk ol sorun olmadan kaç geriye.'),
 (2, 1, '2024.07 - 2024.08', 'Priva Security', 'Frontend Geliştirici (Stajyer)', 'Lorem açıklama işlemi. Hesap olacak bir şey ama yine de düzelir belki ama olmasa da olur. Çabuk ol sorun olmadan kaç geriye.'),
-(3, 1, '2023.07 - 2023.08', 'ButikO', 'Frontend Geliştirici (Stajyer)', 'Lorem açıklama işlemi. Hesap olacak bir şey ama yine de düzelir belki ama olmasa da olur. Çabuk ol sorun olmadan kaç geriye.');
+(3, 1, '2024.09 - 2025.01', 'Priva Security', 'Frontend Geliştirici (Uzun Dönem Stajyer)', 'Lorem açıklama işlemi. Hesap olacak bir şey ama yine de düzelir belki ama olmasa da olur. Çabuk ol sorun olmadan kaç geriye.');
 
 -- --------------------------------------------------------
 
@@ -147,7 +147,7 @@ CREATE TABLE `personal_info` (
 --
 
 INSERT INTO `personal_info` (`id`, `header`, `name`, `description`, `img_path`) VALUES
-(1, 'Merhaba', 'Ben Abdülbaki', 'Marmara Üniversitesi Bilgisayar Mühendisliği Bölümü\'nde 4. sınıf öğrencisiyim. <b>Web geliştirme</b>, <b>makine öğrenmesi</b> ve <b>veri analizi</b> alanlarına ilgi duyuyorum ve bu konularda kendimi sürekli geliştirmekteyim.', '/img/0461957ef088a9513ea7d30810ab96a3.png');
+(1, 'Merhaba', 'Ben Abdülbaki', 'Marmara Üniversitesi Bilgisayar Mühendisliği Bölümü\'nde 4. sınıf öğrencisiyim. <b>Web geliştirme</b>, <b>makine öğrenmesi</b> ve <b>veri analizi</b> alanlarına ilgi duyuyorum ve bu konularda kendimi sürekli geliştirmekteyim.', '/img/1c8d310c038e41d3bb4a115de550a2bd.png');
 
 -- --------------------------------------------------------
 
@@ -306,7 +306,7 @@ ALTER TABLE `education_headers`
 -- Tablo için AUTO_INCREMENT değeri `job_experiences`
 --
 ALTER TABLE `job_experiences`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `job_experience_headers`

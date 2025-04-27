@@ -1,9 +1,7 @@
-
-
 export function FastPage(content="",name="",class_name="",header=""){
 
     return`
-        <div style="z-index:1000" class="fast-page-body row">
+        <div style="z-index:1000" class="fast-page-body">
             <div class="fast-page-content  ${class_name}">
                 <input class="d-none" type="checkbox" id="${"FastPage"+name}" name="close">
                 <h6  class="position-absolute " style="top:15px; left:15px">

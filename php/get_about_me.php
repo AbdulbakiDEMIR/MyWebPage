@@ -4,6 +4,17 @@ require_once "db_connect.php";
 // Son JSON dizisini hazırlıyoruz
 $response = [];
 
+/* --- personal_info bölümü --- */
+
+$personalInfo = null;
+$personalInfoSql = "SELECT header, name, description, img_path FROM personal_info LIMIT 1";
+$personalInfoResult = $conn->query($personalInfoSql);
+
+if ($personalInfoResult->num_rows > 0) {
+    $personalInfo = $personalInfoResult->fetch_assoc();
+}
+
+
 /* --- tech bölümü --- */
 
 // Tüm teknoloji başlıklarını çek
@@ -51,13 +62,14 @@ if ($jobExperienceHeaderResult->num_rows > 0) {
     while ($jobHeader = $jobExperienceHeaderResult->fetch_assoc()) {
         $headerId = $jobHeader['id'];
 
-        $jobExperiencesSql = "SELECT date, company, mission, explanation FROM job_experiences WHERE header_id = $headerId";
+        $jobExperiencesSql = "SELECT * FROM job_experiences WHERE header_id = $headerId ORDER BY id DESC";
         $jobExperiencesResult = $conn->query($jobExperiencesSql);
 
         $contents = [];
         if ($jobExperiencesResult->num_rows > 0) {
             while ($job = $jobExperiencesResult->fetch_assoc()) {
                 $contents[] = [
+                    "id" => $job['id'],
                     "date" => $job['date'],
                     "company" => $job['company'],
                     "mission" => $job['mission'],
@@ -85,13 +97,14 @@ if ($educationHeaderResult->num_rows > 0) {
     while ($eduHeader = $educationHeaderResult->fetch_assoc()) {
         $headerId = $eduHeader['id'];
 
-        $educationsSql = "SELECT date, university, department, class, note FROM educations WHERE header_id = $headerId";
+        $educationsSql = "SELECT * FROM educations WHERE header_id = $headerId ORDER BY id DESC";
         $educationsResult = $conn->query($educationsSql);
 
         $contents = [];
         if ($educationsResult->num_rows > 0) {
             while ($edu = $educationsResult->fetch_assoc()) {
                 $contents[] = [
+                    "id" => $edu['id'],
                     "date" => $edu['date'],
                     "university" => $edu['university'],
                     "department" => $edu['department'],
@@ -149,6 +162,7 @@ if ($blogsResult->num_rows > 0) {
 /* --- JSON Cevabı --- */
 
 $response = [
+    "personal_info" => $personalInfo,
     "tech" => $tech,
     "experience" => $experience,
     "projects" => $projects,
