@@ -1,112 +1,28 @@
 
-document.addEventListener("DOMContentLoaded",function(){
+export function initScrollReveal() {
+    const sr = ScrollReveal({ reset: false });
 
-    // ScrollReveal.debug = true;
-    ScrollReveal({ reset: false });
-    ScrollReveal().reveal('.animate-top1', { 
-        origin:"top",
-        distance : "200px",
-        duration : 1000,
-    });
-    ScrollReveal().reveal('.animate-top2', { 
-        origin:"top",
-        distance : "200px",
-        duration : 1000,
-        delay: 100
-    });
-    ScrollReveal().reveal('.animate-top3', { 
-        origin:"top",
-        distance : "200px",
-        duration : 1000,
-        delay : 200
-    });
-    ScrollReveal().reveal('.animate-top4', { 
-        origin:"top",
-        distance : "200px",
-        duration : 1000,
-        delay : 300
-    });
-    ScrollReveal().reveal('.animate-top5', { 
-        origin:"top",
-        distance : "200px",
-        duration : 1000,
-        delay : 400
-    });
-    ScrollReveal().reveal('.animate-bottom', { 
-            origin:"bottom",
-            distance : "200px",
-            duration : 1000,
-    });
-    ScrollReveal().reveal('.animate-left1', { 
-        origin:"left",
-        distance : "200px",
-        duration : 1000,
-    });
-    ScrollReveal().reveal('.animate-left2', { 
-        origin:"left",
-        distance : "200px",
-        duration : 1000,
-        delay: 100
-    });
-    ScrollReveal().reveal('.animate-left3', { 
-        origin:"left",
-        distance : "200px",
-        duration : 1000,
-        delay: 200 
-    });
-    ScrollReveal().reveal('.animate-left4', { 
-        origin:"left",
-        distance : "200px",
-        duration : 1000,
-        delay: 300
-    });
-    ScrollReveal().reveal('.animate-right', { 
-        origin:"right",
-        distance : "100px",
-        duration : 1000,
-    });
+    sr.reveal('.animate-top1', { origin: "top", distance: "200px", duration: 1000 });
+    sr.reveal('.animate-top2', { origin: "top", distance: "200px", duration: 1000, delay: 100 });
+    sr.reveal('.animate-top3', { origin: "top", distance: "200px", duration: 1000, delay: 200 });
+    sr.reveal('.animate-top4', { origin: "top", distance: "200px", duration: 1000, delay: 300 });
+    sr.reveal('.animate-top5', { origin: "top", distance: "200px", duration: 1000, delay: 400 });
+    sr.reveal('.animate-bottom', { origin: "bottom", distance: "200px", duration: 1000 });
+    sr.reveal('.animate-left1', { origin: "left", distance: "200px", duration: 1000 });
+    sr.reveal('.animate-left2', { origin: "left", distance: "200px", duration: 1000, delay: 100 });
+    sr.reveal('.animate-left3', { origin: "left", distance: "200px", duration: 1000, delay: 200 });
+    sr.reveal('.animate-left4', { origin: "left", distance: "200px", duration: 1000, delay: 300 });
+    sr.reveal('.animate-right', { origin: "right", distance: "100px", duration: 1000 });
+}
 
 
 
-    // Gözlemlenecek olan tüm etiketler
-    const targetElements = document.querySelectorAll('.date-content-box');
-    // Intersection Observer ayarları
-    const observerOptions = {
-    root: null, // Sayfa içindeki görünüm penceresi (null, tüm sayfa anlamına gelir)
-    threshold: 0.1 // Hedefin %10'u göründüğünde tetiklenir
-    };
-
-    // Gözlemcinin callback fonksiyonu
-    const observerCallback = (entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-        // Eğer etiket görünür hale gelirse, 'visible' sınıfını ekle
-        entry.target.classList.add('animation-active');
-        } 
-        // else {
-        // // Eğer etiket görünür değilse, 'visible' sınıfını kaldır (opsiyonel)
-        // entry.target.classList.remove('visible');
-        // }
-    });
-    };
-
-    // Intersection Observer oluşturulması
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    // Her bir target etiketi gözlemlemeye başla
-    targetElements.forEach(target => observer.observe(target));
-    
-
-})
-
-
-
-function burgerButtonActive(){
+function burgerButtonActive() {
     var burger_line1 = document.getElementById("burger-button-line1");
     var burger_line2 = document.getElementById("burger-button-line2");
     var burger_line3 = document.getElementById("burger-button-line3");
     var burger_ul = document.querySelector("nav");
-    
+
     burger_line1.classList.toggle("burger-button-line1-active");
     burger_line2.classList.toggle("burger-button-line2-active");
     burger_line3.classList.toggle("burger-button-line3-active");
@@ -114,7 +30,7 @@ function burgerButtonActive(){
 }
 
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     var navbar = document.querySelector('nav');
     if (navbar) {  // navbar öğesinin olup olmadığını kontrol et
         if (window.scrollY > document.documentElement.clientHeight / 2) {
@@ -126,59 +42,57 @@ window.addEventListener('scroll', function() {
 });
 
 
-function scrollToSection(event) {
-    // Varsayılan link davranışını engelle
+window.scrollToSection = function (event) {
     event.preventDefault();
     const href = event.target.getAttribute("href");
-
     const sectionId = href.substring(1);
     const section = document.getElementById(sectionId);
     if (section) {
         section.scrollIntoView({ behavior: "smooth" });
     }
-}
+};
 
 
-function changeUrl(url){
+function changeUrl(url) {
     window.location.pathname = url;
 }
 
-function getParams(paramsName){
+window.getParams = function (paramsName) {
     const search = window.location.search; // "?id=12"
 
     const params = new URLSearchParams(search);
     const params_value = params.get(paramsName);
 
     return params_value;
-}
+};
 
 
-function inputPasswordIcon(id){
-    icon=document.getElementById("icon"+id);
-    input=document.getElementById(id);
-    if(input.type == "text"){
-        input.type="password"
+window.inputPasswordIcon = function (id) {
+    icon = document.getElementById("icon" + id);
+    input = document.getElementById(id);
+    if (input.type == "text") {
+        input.type = "password"
         icon.classList.remove("fa-eye");
         icon.classList.add("fa-eye-slash");
-    }else{
-        input.type="text"
+    } else {
+        input.type = "text"
         icon.classList.add("fa-eye");
         icon.classList.remove("fa-eye-slash");
     }
 }
 
-function previewImage(event,id) {
+window.previewImage = function (event, id) {
     const file = event.target.files[0]; // Seçilen ilk dosya
-    id= id.id;
-    console.log(file,id)
+    id = id.id;
+    console.log(file, id)
     if (file) {
-        const previewContainer = document.querySelector('#'+id+'PreviewContainer img');
+        const previewContainer = document.querySelector('#' + id + 'PreviewContainer img');
         previewContainer.src = URL.createObjectURL(file); // Dosyanın geçici URL'sini al
 
     }
 }
 
-function image_adapter_submit(event){
+window.image_adapter_submit = function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const image_name = formData.get("image_create_name_input");
@@ -190,44 +104,44 @@ function image_adapter_submit(event){
         method: "POST",
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error("Yükleme sırasında hata oluştu:", error);
-    });
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
 }
 
 
 
 
 
-function image_adapter_value(target,value){
+window.image_adapter_value = function (target, value) {
     var image_input = document.getElementById(target);
     image_input.value = value;
     var admin_personal_image = document.getElementById("admin_personal_image");
-    admin_personal_image.src=value;   
+    admin_personal_image.src = value;
 }
 
 
-function personal_data_submit(event){
+window.personal_data_submit = function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     fetch("/php/upload_personal_info.php", {
         method: "POST",
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error("Yükleme sırasında hata oluştu:", error);
-    });
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
 }
 
-function work_update(event){
+window.work_update = function (event) {
     event.preventDefault();
     console.log(event.target)
     const formData = new FormData(event.target);
@@ -235,17 +149,17 @@ function work_update(event){
         method: "POST",
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        changeUrl( window.location.pathname)
-    })
-    .catch(error => {
-        console.error("Yükleme sırasında hata oluştu:", error);
-    });
+        .then(response => response.text())
+        .then(data => {
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
 }
 
-function set_work_update_component(id,name,date,mission,explanation){
-    console.log(id,name,date,mission,explanation)
+window.set_work_update_component = function (id, name, date, mission, explanation) {
+    console.log(id, name, date, mission, explanation)
     document.getElementById("work_update_id").value = id;
     document.getElementById("work_company_name_update_input").value = name;
     document.getElementById("work_company_date_update_input").value = date;
@@ -253,24 +167,24 @@ function set_work_update_component(id,name,date,mission,explanation){
     document.getElementById("work_company_explanation_update_input").value = explanation;
 }
 
-function edu_update(event){
+window.edu_update = function (event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     fetch("/php/edu_update.php", {
         method: "POST",
         body: formData
     })
-    .then(response => response.text())
-    .then(data => {
-        changeUrl( window.location.pathname)
-    })
-    .catch(error => {
-        console.error("Yükleme sırasında hata oluştu:", error);
-    });
+        .then(response => response.text())
+        .then(data => {
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
 }
 
-function set_edu_update_component(id,university,date,department,class_name,note){
-    console.log(id,university,date,department,class_name,note)
+window.set_edu_update_component = function (id, university, date, department, class_name, note) {
+    console.log(id, university, date, department, class_name, note)
     document.getElementById("edu_update_id").value = id;
     document.getElementById("edu_university_update_input").value = university;
     document.getElementById("edu_date_update_input").value = date;

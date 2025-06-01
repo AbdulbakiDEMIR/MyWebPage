@@ -1,47 +1,42 @@
 export const imagesData = [
     {
-        "id": "0461957ef088a9513ea7d30810ab96a3",
-        "name": "dsas",
-        "path": "/img/0461957ef088a9513ea7d30810ab96a3.png"
-    },
-    {
-        "id": "c0efe20e4f1039afd00e2ade392220b0",
-        "name": "dsas",
-        "path": "/img/c0efe20e4f1039afd00e2ade392220b0.png"
-    },
-    {
-        "id": "76fa4cf27a126ddae5f9f3ed6119e633",
-        "name": "dsas",
-        "path": "/img/76fa4cf27a126ddae5f9f3ed6119e633.png"
-    },
-    {
-        "id": "98d91e0dff8696ffb8f72951910eb2a6",
-        "name": "dsas",
-        "path": "/img/98d91e0dff8696ffb8f72951910eb2a6.png"
-    },
-    {
-        "id": "eb92b583790cb6bb74c6550cbfd7235c",
-        "name": "dsas",
-        "path": "/img/eb92b583790cb6bb74c6550cbfd7235c.png"
-    },
-    {
-        "id": "acced0986993302746c4bd1fd2de0046",
-        "name": "dsas",
-        "path": "/img/acced0986993302746c4bd1fd2de0046.png"
-    },
-    {
-        "id": "f306239d8a65f0734328340bcc454174",
-        "name": "dsas",
-        "path": "/img/f306239d8a65f0734328340bcc454174.png"
-    },
-    {
         "id": "1c8d310c038e41d3bb4a115de550a2bd",
         "name": "dsas",
         "path": "/img/1c8d310c038e41d3bb4a115de550a2bd.png"
     },
     {
-        "id": "787c70a04661f168ff1351277677efef",
-        "name": "yeni",
-        "path": "/img/787c70a04661f168ff1351277677efef.jpg"
+        "id": "1e35a8ddb2bedb250ce86279d382fd19",
+        "name": "Abd\u00fclbaki Demir_Abd\u00fclbaki Demir - Temel Linux 101",
+        "path": "/img/1e35a8ddb2bedb250ce86279d382fd19.png"
+    },
+    {
+        "id": "194bb522b8d30ce4e0412c2fd9c8bbc7",
+        "name": "Abd\u00fclbaki Demir_Abd\u00fclbaki Demir - Temel Linux 201",
+        "path": "/img/194bb522b8d30ce4e0412c2fd9c8bbc7.png"
+    },
+    {
+        "id": "49d1c59335886631eeb64510bce44c42",
+        "name": "Abd\u00fclbaki Demir_Abd\u00fclbaki Demir - Temel Linux 301",
+        "path": "/img/49d1c59335886631eeb64510bce44c42.png"
+    },
+    {
+        "id": "bd080ae1c3497beef02588ef3dfd7b8c",
+        "name": "Abd\u00fclbaki Demir_Abd\u00fclbaki Demir - Temel Linux 401",
+        "path": "/img/bd080ae1c3497beef02588ef3dfd7b8c.png"
+    },
+    {
+        "id": "0e3fb2a1fddedf282c9dde04e5fd175d",
+        "name": "Abd\u00fclbaki Demir_Abd\u00fclbaki Demir - Temel Network E\u011fitimi",
+        "path": "/img/0e3fb2a1fddedf282c9dde04e5fd175d.png"
+    },
+    {
+        "id": "4c91894c54cef2ad9c1213318ccd0e49",
+        "name": "C s\u0131f\u0131rdan ileri seviye uygulamal\u0131 programlama",
+        "path": "/img/4c91894c54cef2ad9c1213318ccd0e49.jpg"
+    },
+    {
+        "id": "f4d503c2b980af6ddee22da936dc2944",
+        "name": "UAKK2024",
+        "path": "/img/f4d503c2b980af6ddee22da936dc2944.png"
     }
 ];

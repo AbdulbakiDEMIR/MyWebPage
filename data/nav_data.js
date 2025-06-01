@@ -15,8 +15,9 @@ export const data = [
         animate:"animate-top3"
     },
     {
-        header:"Bloglar",
-        href:"#blogs",
+        header:"Sertifikalar",
+        href:"#certificates",
         animate:"animate-top4"
     }
+    
 ]

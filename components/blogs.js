@@ -10,7 +10,7 @@ export function Blogs(blogs){
         <section id="blogs">
             <div class="container-xxl">
                 <div class="row">
-                    <div class="col-12 col-lg-8 mx-auto">
+                    <div class="col-12 col-xl-8 mx-auto">
                         <h2 class="animate-top2">Bloglar</h2>
                         <div class="row row-cols-md-3 row-cols-2">
                             ${blogsContent}

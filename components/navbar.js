@@ -1,6 +1,7 @@
 import { data } from "/data/nav_data.js";
 
 export function Navbar() {
+    
     const navItems = data.map(nav => `
         <li class="${nav.animate}">
             <a href="${nav.href}" onclick="scrollToSection(event)">${nav.header}</a>

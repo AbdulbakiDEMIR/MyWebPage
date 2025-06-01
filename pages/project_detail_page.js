@@ -35,7 +35,6 @@ export function ProjectDetailPage() {
                     </div>
                 </div>
             </div>
-            <button class="btn btn-dark" onclick="changeUrl('/admin')">Bas</button>
         </section>
     `;
 
