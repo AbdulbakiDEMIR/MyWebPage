@@ -143,7 +143,6 @@ window.personal_data_submit = function (event) {
 
 window.work_update = function (event) {
     event.preventDefault();
-    console.log(event.target)
     const formData = new FormData(event.target);
     fetch("/php/work_update.php", {
         method: "POST",
@@ -165,6 +164,163 @@ window.set_work_update_component = function (id, name, date, mission, explanatio
     document.getElementById("work_company_date_update_input").value = date;
     document.getElementById("work_company_mission_update_input").value = mission;
     document.getElementById("work_company_explanation_update_input").value = explanation;
+}
+
+
+window.work_create = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    console.log(formData)
+
+    fetch("/php/work_create.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+window.set_work_create_component = function () {
+    document.getElementById("work_company_name_create_input").value = "";
+    document.getElementById("work_company_date_create_input").value = "";
+    document.getElementById("work_company_mission_create_input").value = "";
+    document.getElementById("work_company_explanation_create_input").value = "";
+}
+
+window.work_delete = function (id) {
+    const formData = new FormData();
+    formData.append("delete_id", id);
+
+    fetch("/php/work_delete.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+
+
+
+
+
+
+
+window.update_tech_header = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch("/php/tech_header_update.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        changeUrl(window.location.pathname)
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
+   
+}     
+window.delete_tech_header = function (id) {
+    const formData = new FormData();
+    formData.append("delete_id", id);
+    fetch("/php/tech_header_delete.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        // changeUrl(window.location.pathname)
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
+}  
+window.create_tech_header = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch("/php/tech_header_create.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        changeUrl(window.location.pathname)
+    })
+    .catch(error => {
+        console.error("Yükleme sırasında hata oluştu:", error);
+    });
+}                        
+
+window.update_skill = function (event,id) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch("/php/skill_update.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+window.create_skill = function (event,header_id) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("header_id", header_id);
+    fetch("/php/skill_create.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+    
+}
+
+
+window.delete_skill = function (id) {
+    console.log(id);
+    const formData = new FormData();
+    formData.append("delete_id", id);
+    fetch("/php/skill_delete.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+    
+
 }
 
 window.edu_update = function (event) {

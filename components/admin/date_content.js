@@ -3,10 +3,24 @@ import { FastPageLabel } from "/components/fast_page.js";
 export function DateContent(data){
     var experienceItems = ""
     if(data.type == 0){
+        
         var i = 0;
         experienceItems = data.contents.map(info => `
             ${DateContentBoxWork(i++, info)}
         `).join(''); 
+
+        experienceItems = ` 
+        <div class="w-100 ">
+            <div class="date-content-box text-center" style="--value:-1">
+                ${FastPageLabel("work_create",`
+                    <p>Yeni Deneyim Ekle</p>
+                    <i class="fa-solid fs-1 fa-plus cursor-pointer" 
+                    onclick="set_work_create_component()"></i>
+                `)}
+            </div>
+        </div>
+        ` + experienceItems;
+
     }else{
         var i = 0;
         experienceItems = data.contents.map(info => `
@@ -34,7 +48,7 @@ function DateContentBoxWork(index, data){
                 <h6 class="m-0">${data.company}</h6>    
                 <div class="date-content-box-date rounded-pill text-center" style="min-width: 9rem;">${data.date}</div>
                 <div class="ms-auto d-flex gap-3">
-                    <i class="fa-solid fa-trash cursor-pointer"></i>
+                    <i onclick="work_delete(${data.id})" class="fa-solid fa-trash cursor-pointer"></i>
                     ${FastPageLabel("work_update",`
                         <i class="fa-solid fa-pen cursor-pointer" 
                         onclick="set_work_update_component('${data.id}','${data.company}','${data.date}','${data.mission}','${data.explanation}')"></i>

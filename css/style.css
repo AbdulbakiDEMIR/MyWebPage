@@ -612,11 +612,14 @@ h6{ font-family: 'Open Sans', sans-serif;}
 /***************OWL CAROUSEL******************/
 /*********************************************/
 
-
+.carousel-container{
+    width: 90%;
+    margin: 0 auto;
+}
 .owl-carousel .owl-stage-outer {
     overflow: hidden;
     margin: 0 auto;
-    width: 95%;
+    width: 100%;
 }
 
 .owl-carousel .owl-stage {

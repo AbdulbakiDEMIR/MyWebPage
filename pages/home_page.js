@@ -32,15 +32,14 @@ export async function HomePage() {
                     nav: true,
                     dots: true,
                     responsive: {
-                        0: {
+                         0: {
                         items: 1 // Mobil: 1 item göster
                         },
-                        
                         1024: {
-                        items: 2 // Masaüstü: 3 item göster
+                        items: 1 // Masaüstü: 1 item göster
                         },
                         1920: {
-                        items: 3 // Daha büyük ekranlar: 4 item
+                        items: 2 // Daha büyük ekranlar: 2 item
                         }
                     }
                 });

@@ -40,6 +40,15 @@ export function AboutMe(tech, experience){
                             <button class="btn btn-dark">Güncelle</button>
                         </form>
                     `,"edu_update","text-dark W-50","Edu Update")}
+                    ${FastPage(`
+                        <form onsubmit="work_create(event)">
+                            ${TextInput("text","work_company_name_create_input", "mb-2 mx-auto ","Company Name")}
+                            ${TextInput("text","work_company_date_create_input", "mb-2 mx-auto ","Company Date")}
+                            ${TextInput("text","work_company_mission_create_input", "mb-2 mx-auto ","Company Mission")}
+                            ${TextInput("textarea","work_company_explanation_create_input", "mb-2 mx-autd ","Company Description")}
+                            <button class="btn btn-dark">Kaydet</button>
+                        </form>
+                    `,"work_create","text-dark W-50","Work Create")}
                     <div class="col-12 col-xl-8 mx-auto">
                         <h2 class="animate-top2">Hakkımda</h2>
                         <div class="row row-cols-1 row-cols-md-2">
@@ -58,6 +67,12 @@ export function AboutMe(tech, experience){
                                 <div class="col">
                                     <h3 class="animate-bottom mb-4">İlgilenilen Teknolojiler</h3>
                                     <ul class="animate-left2 aboutMe-list gap-3 d-flex flex-column shadow-1 rounded-3 p-3">
+                                        <h5>Create New Hader</h5>
+                                        <form onsubmit="create_tech_header(event)" class="d-flex justify-content-between align-items-center mb-2 w-100">
+                                            <input type="text" name="name" class="w-50 p-1" value="" />
+                                            <button class="btn btn-primary btn-sm me-3">Create</button>
+                                        </form>
+                                        <hr/>
                                         ${resumes}
                                     </ul>
                                 </div>

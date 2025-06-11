@@ -28,13 +28,14 @@ if ($techHeadersResult->num_rows > 0) {
         $headerId = $header['id'];
 
         // Her header'a bağlı contentleri çek
-        $techContentsSql = "SELECT icon, text FROM tech_contents WHERE header_id = $headerId";
+        $techContentsSql = "SELECT id ,icon, text FROM tech_contents WHERE header_id = $headerId";
         $techContentsResult = $conn->query($techContentsSql);
 
         $contents = [];
         if ($techContentsResult->num_rows > 0) {
             while ($content = $techContentsResult->fetch_assoc()) {
                 $contents[] = [
+                    "id" => $content['id'],
                     "icon" => $content['icon'],
                     "text" => $content['text']
                 ];
@@ -42,6 +43,7 @@ if ($techHeadersResult->num_rows > 0) {
         }
 
         $tech[] = [
+            "id" => $headerId,
             "header" => $header['header'],
             "content" => $contents
         ];
