@@ -20,8 +20,8 @@ export function FastPage(content="",name="",class_name="",header=""){
     `
 }
 
-export function FastPageLabel(name,content) {
+export function FastPageLabel(name,content, class_name="") {
     return `
-        <label for="${"FastPage"+name}">${content}</label>
+        <label for="${"FastPage"+name}" class="${class_name}">${content}</label>
     `
 }

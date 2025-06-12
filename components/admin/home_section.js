@@ -3,7 +3,7 @@ import { ImageAdapter, ImageAdapterLabel } from "/components/image_adapter.js";
 
 
 export function HomeSection(data) {
-    const image_adapter=ImageAdapter("admin_image_adapter"); 
+    const image_adapter=ImageAdapter("admin_image_adapter","admin_personal_image","img"); 
     
     return `
         ${image_adapter}

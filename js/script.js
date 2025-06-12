@@ -117,11 +117,15 @@ window.image_adapter_submit = function (event) {
 
 
 
-window.image_adapter_value = function (target, value) {
+window.image_adapter_value = function (target, value, chance, type) {
     var image_input = document.getElementById(target);
     image_input.value = value;
-    var admin_personal_image = document.getElementById("admin_personal_image");
-    admin_personal_image.src = value;
+    var admin_personal_image = document.getElementById(chance);
+    if (type === "img") {
+        admin_personal_image.src = value;
+    } else if (type === "text") {
+        admin_personal_image.value = value;
+    } 
 }
 
 
@@ -210,13 +214,6 @@ window.work_delete = function (id) {
             console.error("Yükleme sırasında hata oluştu:", error);
         });
 }
-
-
-
-
-
-
-
 
 window.update_tech_header = function (event) {
     event.preventDefault();
@@ -339,6 +336,9 @@ window.edu_update = function (event) {
         });
 }
 
+
+
+
 window.set_edu_update_component = function (id, university, date, department, class_name, note) {
     console.log(id, university, date, department, class_name, note)
     document.getElementById("edu_update_id").value = id;
@@ -347,4 +347,165 @@ window.set_edu_update_component = function (id, university, date, department, cl
     document.getElementById("edu_department_update_input").value = department;
     document.getElementById("edu_class_name_update_input").value = class_name;
     document.getElementById("edu_note_update_input").value = note;
+}
+
+
+
+window.project_create = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    console.log(formData)
+
+    fetch("/php/project_create.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+window.set_project_create_component = function () {
+    document.getElementById("project_name_create_input").value = "";
+    document.getElementById("project_date_create_input").value = "";
+    document.getElementById("project_img_create_input").value = "";
+    document.getElementById("project_description_create_input").value = "";
+    document.getElementById("project_github_create_input").value = "";
+}
+
+
+window.project_update = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch("/php/project_update.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+window.set_project_update_component = function (id, name, date, img, description, github) {
+    console.log(id, name, date, img, description, github)
+    document.getElementById("project_id_update_input").value = id;
+    document.getElementById("project_name_update_input").value = name;
+    document.getElementById("project_date_update_input").value = date;
+    document.getElementById("project_img_update_input").value = img;
+    document.getElementById("project_description_update_input").value = description;
+    document.getElementById("project_github_update_input").value = github;
+}
+
+window.project_delete = function (id) {
+    const formData = new FormData();
+    formData.append("id", id);
+    fetch("/php/project_delete.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+window.blog_create = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    console.log(formData)
+
+    fetch("/php/blog_create.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+window.set_blog_create_component = function () {
+    document.getElementById("blog_name_create_input").value = "";
+    document.getElementById("blog_date_create_input").value = "";
+    document.getElementById("blog_img_create_input").value = "";
+    document.getElementById("blog_description_create_input").value = "";
+    document.getElementById("blog_github_create_input").value = "";
+}
+
+
+window.blog_update = function (event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    fetch("/php/blog_update.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
+}
+
+window.set_blog_update_component = function (id, name, date, img, description, github) {
+    console.log(id, name, date, img, description, github)
+    document.getElementById("blog_id_update_input").value = id;
+    document.getElementById("blog_name_update_input").value = name;
+    document.getElementById("blog_date_update_input").value = date;
+    document.getElementById("blog_img_update_input").value = img;
+    document.getElementById("blog_description_update_input").value = description;
+    document.getElementById("blog_github_update_input").value = github;
+}
+
+window.blog_delete = function (id) {
+    const formData = new FormData();
+    formData.append("id", id);
+    fetch("/php/blog_delete.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            // changeUrl(window.location.pathname)
+        })
+        .catch(error => {
+            console.error("Yükleme sırasında hata oluştu:", error);
+        });
 }

@@ -128,12 +128,13 @@ if ($educationHeaderResult->num_rows > 0) {
 /* --- projects bölümü --- */
 
 $projects = [];
-$projectsSql = "SELECT img, header, date, explanation, link FROM projects";
+$projectsSql = "SELECT id, img, header, date, explanation, link FROM projects";
 $projectsResult = $conn->query($projectsSql);
 
 if ($projectsResult->num_rows > 0) {
     while ($project = $projectsResult->fetch_assoc()) {
         $projects[] = [
+            "id" => $project['id'],
             "img" => $project['img'],
             "header" => $project['header'],
             "date" => $project['date'],
@@ -146,12 +147,13 @@ if ($projectsResult->num_rows > 0) {
 /* --- blogs bölümü --- */
 
 $blogs = [];
-$blogsSql = "SELECT img, header, date, explanation, link FROM blogs";
+$blogsSql = "SELECT id, img, header, date, explanation, link FROM blogs";
 $blogsResult = $conn->query($blogsSql);
 
 if ($blogsResult->num_rows > 0) {
     while ($blog = $blogsResult->fetch_assoc()) {
         $blogs[] = [
+            "id" => $blog['id'],
             "img" => $blog['img'],
             "header" => $blog['header'],
             "date" => $blog['date'],

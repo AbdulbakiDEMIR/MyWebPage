@@ -28,11 +28,11 @@ export function Resume(data) {
             ${skillItems}   
             <li class="col">
                 <form onsubmit="create_skill(event, ${data.id})" class="d-flex justify-content-between align-items-center mb-2 w-100">
-                    <div class="d-flex gap-2 align-items-center" style="width: 70%;">
-                        <input type="text" name="icon" value=""/>
-                        <input type="text" name="text" value=""/>
+                    <div class="d-flex gap-2 align-items-center" style="width: 85%;">
+                        <input class="w-50" type="text" name="icon" value=""/>
+                        <input class="w-50" type="text" name="text" value=""/>
                     </div>
-                    <div class="d-flex gap-1 justify-content-end align-items-center" style="width: 30%;">
+                    <div class="d-flex gap-1 justify-content-end align-items-center" style="width: 15%;">
                         <button class="bg-transparent"><i  class="cursor-pointer fs-6 fa-solid fa-plus"></i></button>
                     </div>
                 </form>

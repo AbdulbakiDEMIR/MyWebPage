@@ -2,7 +2,7 @@ import { FastPage, FastPageLabel } from "/components/fast_page.js";
 import { TextInput } from "/components/input/input.js"
 import {imagesData} from "/img/images.js"
 
-export function ImageAdapter(name) { 
+export function ImageAdapter(name,chance,type) { 
 
     const create_image = FastPage(`
         <form 
@@ -29,9 +29,9 @@ export function ImageAdapter(name) {
             <p class="text-center fw-light text-no-wrap" style="font-size:0.9rem">Buraya Tıkla Buraya Tıkla Buraya Tıkla Buraya Tıkla Buraya Tıkla Buraya Tıkla </p>
         </div>
     `)
-    function images(path,name) {
+    function images(path,name,chance,type) {
         return `
-        <div class="col cursor-pointer" onclick="image_adapter_value('image_adapter_input','${path}')">
+        <div class="col cursor-pointer" onclick="image_adapter_value('image_adapter_input','${path}','${chance}','${type}')">
             <div class="ratio ratio-1x1 bg-white">
                 <img src="${path}" class="w-100 h-100" style="object-fit:cover;">
             </div>
@@ -39,12 +39,12 @@ export function ImageAdapter(name) {
         </div>
     `
     }
-    function show_images() {
+    function show_images(chance,type) {
         var image = "";
         // Örnek: Tüm resim yollarını yazdır
         imagesData.forEach(item => {
-            image = image + images(item.path,item.name)
-            
+            image = image + images(item.path,item.name,chance,type);
+
         });
 
         return image;
@@ -53,7 +53,7 @@ export function ImageAdapter(name) {
     const FastPage1 = FastPage(`
         <div  class="row row-cols-6">
             ${create_image_label}
-            ${show_images()}
+            ${show_images(chance,type)}
             ${create_image}
         </div>
         `,name, "col-8", "Resim")
